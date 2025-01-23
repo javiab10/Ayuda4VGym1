@@ -1,0 +1,45 @@
+<div class="container py-4">
+    <div class="row justify-content-start gap-5">
+        <div class="col-2">
+            <input type="date" [(ngModel)]="date">
+        </div>
+
+        <div class="col-8">
+            <div class="container">
+                
+                <!--FECHA-->
+                <app-fecha [date]="date"></app-fecha>
+                <!--FECHA-->
+
+                <!--ACTIVIDADES-->
+                <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'10:00'" [endingTime]="'11:30'"></app-activity-card>
+                <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'13:30'" [endingTime]="'15:00'"></app-activity-card>
+                <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'17:30'" [endingTime]="'19:00'"></app-activity-card>
+                <!--ACTIVIDADES-->
+
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL AÑADIR ACTIVIDAD-->
+    <div class="modal" id="modalAdd">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar actividad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                             <app-form-add-activity></app-form-add-activity>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

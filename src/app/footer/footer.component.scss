@@ -1,0 +1,26 @@
+$grey: #D9D9D9;
+$red: #D15B5B;
+$darkGrey: #6B6B6B;
+
+footer{
+    min-height: 12vh;
+    background-color: $grey;
+}
+
+.redBar{
+    height: 5px;
+    background-color: $red;
+}
+
+.whiteBar{
+    height: 5px;
+    background-color: white;
+}
+
+.red{
+    color: $red;
+}
+
+.grey{
+    color: $darkGrey;
+}

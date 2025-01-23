@@ -21,6 +21,10 @@ export class ActivityCardComponent {
     this.loadActivity();
   }
 
+  ngOnChanges(): void {
+    this.loadActivity();
+  }
+
   // ngOnChanges(): void {
   //   this.loadActivity();
   // }

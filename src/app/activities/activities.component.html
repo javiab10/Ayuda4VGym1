@@ -8,7 +8,7 @@
             <div class="container">
                 
                 <!--FECHA-->
-                <app-fecha [date]="date"></app-fecha>
+                <app-fecha [date]="date" (dateChange)="updateDate($event)"></app-fecha>
                 <!--FECHA-->
 
                 <!--ACTIVIDADES-->

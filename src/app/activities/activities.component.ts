@@ -4,10 +4,11 @@ import { FormAddActivityComponent } from "../activitiesUtils/form-add-activity/f
 import { FechaComponent } from "../activitiesUtils/fecha/fecha.component";
 import { FormsModule } from '@angular/forms';
 import { ActivityCardComponent } from "../activitiesUtils/activity-card/activity-card.component";
+import { ModalAddActivityComponent } from "../activitiesUtils/modal-add-activity/modal-add-activity.component";
 
 @Component({
   selector: 'app-activities',
-  imports: [CommonModule, FormAddActivityComponent, FechaComponent, FormsModule, ActivityCardComponent],
+  imports: [CommonModule, FechaComponent, FormsModule, ActivityCardComponent, ModalAddActivityComponent],
   templateUrl: './activities.component.html',
   styleUrl: './activities.component.scss'
 })

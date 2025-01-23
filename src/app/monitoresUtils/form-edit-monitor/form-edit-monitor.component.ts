@@ -37,7 +37,7 @@ export class FormEditMonitorComponent {
   }
 
   ngOnInit() {
-    console.log('Monitor recibido', this.monitor); // Verifica si el objeto se recibe correctamente
+    console.log('Monitor recibido', this.monitor); // Verificamos si el objeto se recibe correctamente
   }
 
 

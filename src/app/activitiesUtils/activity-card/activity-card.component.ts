@@ -11,7 +11,7 @@ import { ModalEditActivityComponent } from "../modal-edit-activity/modal-edit-ac
   styleUrl: './activity-card.component.scss'
 })
 export class ActivityCardComponent {
-  @Input() date: any = new Date();
+  @Input() date: Date = new Date();
   @Input() startingTime: string = '';
   @Input() endingTime: string = '';
   activity: any;
@@ -27,9 +27,9 @@ export class ActivityCardComponent {
   }
   
   loadActivity() {
+    this.date = new Date(this.date); //Cuando recibimos la fecha del datepicker la recibimos como un string. Así que lo convertimos a fecha
     this.activity = this.activityService.getActivityByDateAndStartingTime(this.date, this.startingTime);
   }
-
 
 }
 

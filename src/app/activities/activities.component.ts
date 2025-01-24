@@ -15,10 +15,11 @@ import { ModalAddActivityComponent } from "../activitiesUtils/modal-add-activity
 export class ActivitiesComponent {
 
   date: any = new Date();
-  
+
+  ngOnInit(){
+    
+  } 
   updateDate(newDate: any) {
-    console.log('fecha vieja:', this.date);
     this.date = newDate;
-    console.log('Nueva fecha:', this.date);
   }
 }

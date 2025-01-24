@@ -10,8 +10,13 @@ import { FormatDatePipe } from "../../pipes/format-date.pipe";
 export class FechaComponent {
   @Input() date: Date = new Date();
   @Output() dateChange = new EventEmitter<Date>();
+  todayDate: Date = new Date();
 
+  ngOnChanges(){
+    
+  }
   prevDate(){
+    this.date = new Date(this.date);
     this.date = new Date(this.date.getTime());
     this.date.setDate(this.date.getDate()-1);
 
@@ -19,6 +24,7 @@ export class FechaComponent {
   }
 
   nextDate(){
+    this.date = new Date(this.date);
     this.date = new Date(this.date.getTime());
     this.date.setDate(this.date.getDate()+1);
 

@@ -17,7 +17,7 @@ export class FormatDatePipe implements PipeTransform {
 
     // Formatear la fecha manualmente o usar `Intl.DateTimeFormat`
     const options: Intl.DateTimeFormatOptions = this.getFormatOptions(format);
-    return new Intl.DateTimeFormat('en-US', options).format(date);
+    return new Intl.DateTimeFormat('es-ES', options).format(date);
   }
 
   private getFormatOptions(format: string): Intl.DateTimeFormatOptions {

@@ -22,7 +22,6 @@ export class CarouselComponent {
 
   ngOnInit(): void {
     this.loadMonitors();
-    console.log("Busqueda " + this.busqueda);
   }
 
   ngOnChanges(): void {

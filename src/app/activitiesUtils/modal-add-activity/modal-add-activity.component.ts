@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormAddActivityComponent } from "../form-add-activity/form-add-activity.component";
 
 @Component({
@@ -8,5 +8,7 @@ import { FormAddActivityComponent } from "../form-add-activity/form-add-activity
   styleUrl: './modal-add-activity.component.scss'
 })
 export class ModalAddActivityComponent {
-
+  @Input() date: Date = new Date();
+  @Input() startingTime: string = '';
+  @Input() endingTime: string = '';
 }

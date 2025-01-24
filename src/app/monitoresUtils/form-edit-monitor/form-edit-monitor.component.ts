@@ -45,7 +45,6 @@ export class FormEditMonitorComponent {
     if(this.monitorEditForm.valid){
       const editedMonitor = new Monitor(this.monitor.id, this.monitorEditForm.get('name')?.value || '', this.monitorEditForm.get('email')?.value || '', this.monitorEditForm.get('phone')?.value || '');
       
-      console.log('Editando monitor: ', editedMonitor);
       if(editedMonitor){
         this.monitorService.editMonitor(editedMonitor);
       }else{

@@ -12,6 +12,10 @@ export class ActivityTypeService {
   ];
   constructor() { }
 
+  getActivityTypes(): Observable<ActivityType[]> {
+    return of(this.activityTypes);
+  }
+  
   getActivityTypeById(id: number): Observable<ActivityType[]> {
     for(let actType of this.activityTypes){
       if(actType.id == id){
@@ -21,12 +25,21 @@ export class ActivityTypeService {
     return of([]);
   }
 
-  getActivityTypeByName(name: string): Observable<ActivityType[]> {
+  getActivityTypeByName(name: string): ActivityType | null{
     for(let actType of this.activityTypes){
       if(actType.name == name){
-        return of([actType]);
+        return actType;
       }
     } 
-    return of([]);
+    return null;
+  }
+  
+  getActivityTypeIdByname(name: string): number{
+    for(let actType of this.activityTypes){
+      if(actType.name == name){
+        return actType.id;
+      }
+    } 
+    return -1;
   }
 }

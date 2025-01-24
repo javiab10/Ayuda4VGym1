@@ -1,13 +1,15 @@
+import { ActivityType } from "./activity-type";
+
 export class Activity {
     id: number;
-    type: string;
+    type: ActivityType;
     monitor1Id: number;
     monitor2Id: number;
     date: Date;
     startingTime: string;
     endingTime: string;
 
-    constructor(id: number, type: string, monitor1Id: number, monitor2Id: number, date: Date, startingTime: string, endingTime: string) {
+    constructor(id: number, type: ActivityType, monitor1Id: number, monitor2Id: number, date: Date, startingTime: string, endingTime: string) {
         this.id = id;
         this.type = type;
         this.monitor1Id = monitor1Id;

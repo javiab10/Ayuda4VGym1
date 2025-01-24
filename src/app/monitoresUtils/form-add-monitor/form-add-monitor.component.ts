@@ -23,6 +23,10 @@ export class FormAddMonitorComponent {
     this.loadMonitors();
   }
 
+  ngOnChanges(): void{
+    this.loadMonitors();
+  }
+
   loadMonitors() {
     this.monitorService.getMonitors().subscribe(data => {
       this.monitors = data

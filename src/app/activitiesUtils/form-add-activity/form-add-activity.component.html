@@ -1,14 +1,23 @@
 <div class="container">
     <div class="row justify-content-center">
-        <form class="form w-75">
-            <select formControlName="activity" class="form-select mt-3 mb-5">
-                <option selected>Actividad</option>
+        <form class="form w-75" [formGroup]="activityAddForm" (ngSubmit)="onSubmit()">
+            <select formControlName="activityType" class="form-select mt-3 mb-5">
+                <option selected disabled>Actividad</option>
+                @for(actType of activityTypes; track $index) {
+                    <option>{{actType}}</option>
+                }
             </select>
             <select formControlName="monitor1" class="form-select mt-3">
-                <option selected>Monitor 1</option>
+                <option selected disabled>Monitor 1</option>
+                @for(monitor of monitors; track $index) {
+                    <option>{{monitor}}</option>
+                }
             </select>
             <select formControlName="monitor2" class="form-select mt-3">
-                <option selected>Monitor 2</option>
+                <option selected disabled>Monitor 2</option>
+                @for(monitor of monitors; track $index) {
+                    <option>{{monitor}}</option>
+                }
             </select>
             <div class="container mt-3">
                 <div class="row cols-6 gap-4 pt-3">

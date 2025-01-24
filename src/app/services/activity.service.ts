@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Activity } from '../models/activity';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
+import { ActivityType } from '../models/activity-type';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { of } from 'rxjs';
 export class ActivityService {
   date: Date = new Date();
   private activities: Activity[] = [
-    new Activity (1, "Spinning", 1, 0 , this.date, "10:00", "11:30"),
-    new Activity (2, "Core", 1, 2, this.date, "17:30", "19:00")
+    new Activity (1, new ActivityType(1, "Spinning"), 1, 0 , this.date, "10:00", "11:30"),
+    new Activity (2, new ActivityType(2, "Core"), 1, 2, this.date, "17:30", "19:00")
   ];
 
   constructor() { }
@@ -28,10 +29,8 @@ export class ActivityService {
     return null;
   }
 
-  
-
   addActivity(activity: Activity): void {
-      this.activities.push(activity);
+    this.activities.push(activity);
   }
 
   deleteActivity(id: number): void {
@@ -39,7 +38,6 @@ export class ActivityService {
     }
   
   editActivity(editedActivity: Activity): void {
-    console.log('Actividad a Editar Recibido: ', editedActivity);
     const index = this.activities.findIndex(m => m.id === editedActivity.id);
     if(index !== -1){
       this.activities[index] = editedActivity;

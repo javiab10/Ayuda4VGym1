@@ -48,7 +48,6 @@ export class MonitorService {
   }
 
   editMonitor(editedMonitor: Monitor): void {
-    console.log('MOnitor a Editar Recibido: ', editedMonitor);
     const index = this.monitors.findIndex(m => m.id === editedMonitor.id);
     if(index !== -1){
       this.monitors[index] = editedMonitor;

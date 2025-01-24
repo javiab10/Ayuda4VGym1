@@ -12,3 +12,23 @@ h1{
 .icon{
     background: $grey;
 }
+
+
+
+/* Cambiar color del texto en los días del calendario */
+::ng-deep .mat-calendar-body .mat-calendar-body-cell-content {
+    color: #000000 !important; /* Color negro */
+    font-weight: 500; /* Texto más legible */
+}
+
+
+/* Hover en las celdas */
+::ng-deep .mat-calendar-body .mat-calendar-body-cell:hover .mat-calendar-body-cell-content {
+    background-color: rgba(17, 82, 39, 0.185) !important; /* Fondo claro en hover */
+    color: #19793c !important; /* Texto azul */
+    cursor: pointer;
+}
+
+--mat-sys-primary{
+    color:rgb(210, 91, 91);
+} 

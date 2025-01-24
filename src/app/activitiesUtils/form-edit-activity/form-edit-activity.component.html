@@ -2,16 +2,32 @@
     <div class="row justify-content-center">
         <form class="form w-75">
             <select formControlName="activity" class="form-select mt-3 mb-5">
-                <option selected>Actividad</option>
-                @for(act of activities; track activity.id) {
-                    <option>{{act.type}}</option>
+                @for(act of activities; track act.id) {
+                    @if(activity.type.id == act.type.id){
+                        <option selected>{{act.type.name}} selected</option>
+                    }@else {
+                        <option>{{act.type.name}}</option>
+                    }
+                    
                 }
             </select>
             <select formControlName="monitor1" class="form-select mt-3">
-                <option selected>Monitor 1</option>
+                @for(monitor of monitors; track monitor.id) {
+                    @if(activity.monitor1Id == monitor.id){
+                        <option selected>{{monitor.name}} selected</option>
+                    }@else {
+                        <option>{{monitor.name}}</option>
+                    }
+                }
             </select>
             <select formControlName="monitor2" class="form-select mt-3">
-                <option selected>Monitor 2</option>
+                @for(monitor of monitors; track monitor.id) {
+                    @if(activity.monitor2Id == monitor.id){
+                        <option selected>{{monitor.name}} selected</option>
+                    }@else {
+                        <option>{{monitor.name}}</option>
+                    }
+                }
             </select>
             <div class="container mt-3">
                 <div class="row cols-6 gap-4 pt-3">

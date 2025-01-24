@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivityService } from '../../services/activity.service';
 import { Monitor } from '../../models/monitor';
 import { MonitorService } from '../../services/monitor.service';
 import { Activity } from '../../models/activity';
+import { ActivityTypeService } from '../../services/activity-type.service';
+import { ActivityType } from '../../models/activity-type';
 
 @Component({
   selector: 'app-form-edit-activity',
@@ -13,25 +15,28 @@ import { Activity } from '../../models/activity';
 })
 export class FormEditActivityComponent {
   @Input() activity!: any;
+  activityTypes: ActivityType[] = [];
+  activities: Activity[] = [];
   monitors: Monitor[] = [];
-  activities: Activity [] = [];
 
-  // monitorEditForm = new FormGroup({
-  //   name: new FormControl('', [Validators.required]),
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   phone: new FormControl('', [Validators.required])
-  // });
+  activityEditForm = new FormGroup({
+    activityType: new FormControl('Core', [Validators.required]),
+    monitor1: new FormControl('Monitor 1', [Validators.required]),
+    monitor2: new FormControl('Monitor 2', [Validators.required])
+  });
 
-  constructor(private monitorService: MonitorService, private activityService: ActivityService) { }
+  constructor(private activityTypeService: ActivityTypeService, private monitorService: MonitorService, private activityService: ActivityService){}
 
-  ngOnInit() {
-    this.loadMonitors();
-    this.loadActivity();
+  ngOnInit(){
+    this.getActivityTypes();
+    this.getActivities();
+    this.getMonitors();
   }
 
-  ngOnChanges() {
-    this.loadMonitors();
-    this.loadActivity();
+  ngOnChanges(){
+    this.getActivityTypes();
+    this.getActivities();
+    this.getMonitors();
   }
 
   loadMonitors() {
@@ -42,6 +47,23 @@ export class FormEditActivityComponent {
     this.activity = this.activityService.getActivities().subscribe(data => this.activity = data);
   }
 
+  getActivityTypes(): void {
+    this.activityTypeService.getActivityTypes().subscribe(activityTypes => {
+      this.activityTypes = activityTypes.map((activityType: ActivityType) => activityType);
+    });
+  }
+
+  getMonitors(): void {
+    this.monitorService.getMonitors().subscribe(monitors => {
+      this.monitors = monitors.map((monitor: Monitor) => monitor);
+    });
+  }
+
+  getActivities(){
+    this.activityService.getActivities().subscribe(data => {
+      this.activities = data
+    });
+  }
   
   // get id(){
   //   if(this.activity){
@@ -57,10 +79,6 @@ export class FormEditActivityComponent {
   // }
   // get message() {
   //   return this.monitorEditForm.get('phone');
-  // }
-
-  // ngOnInit() {
-  //   console.log('Activity recibida ' + this.activity); // Verifica si el objeto se recibe correctamente
   // }
 
 

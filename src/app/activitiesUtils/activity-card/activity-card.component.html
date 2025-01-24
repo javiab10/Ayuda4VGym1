@@ -2,8 +2,6 @@
 @if(activity == null){
     <!--MODAL AÑADIR ACTIVIDAD-->
     <app-modal-add-activity [idModal]="'modalAdd'" [date]="date" [startingTime]="startingTime" [endingTime]="endingTime" (activityAddedEmiter)="onActivityAdded()" />
-    <!--MODAL EDITAR ACTIVIDAD-->
-    <app-modal-edit-activity [activity]="activity" />
     
     <div class="row">
         <div class="col-12 col-sm-2 col-md-1 d-flex flex-column align-items-center justify-content-center">
@@ -85,5 +83,8 @@
         </div>
         <!--ICONOS-->
     </div>
+
+    <!--MODAL EDITAR ACTIVIDAD-->
+    <app-modal-edit-activity [activity]="activity" />
     
 }

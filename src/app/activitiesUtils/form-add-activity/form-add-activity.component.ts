@@ -14,11 +14,13 @@ import { ActivityService } from '../../services/activity.service';
   styleUrl: './form-add-activity.component.scss'
 })
 export class FormAddActivityComponent {
+  
   activityAddForm = new FormGroup({
     activityType: new FormControl('Actividad', [Validators.required]),
     monitor1: new FormControl('Monitor 1', [Validators.required]),
     monitor2: new FormControl('Monitor 2', [Validators.required])
   });
+
   activityType: ActivityType = new ActivityType(-1, '');
   @Input() date: Date = new Date();
   @Input() startingTime: string = '';

@@ -28,6 +28,8 @@ export class ActivityService {
     return null;
   }
 
+  
+
   addActivity(activity: Activity): void {
       this.activities.push(activity);
   }

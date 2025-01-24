@@ -2,21 +2,21 @@
     <div class="row justify-content-center">
         <form class="form w-75" [formGroup]="activityAddForm" (ngSubmit)="onSubmit()">
             <select formControlName="activityType" class="form-select mt-3 mb-5">
-                <option selected disabled>Actividad</option>
-                @for(actType of activityTypes; track $index) {
-                    <option>{{actType}}</option>
+                <option selected disabled>Actividad</option>{{startingTime}}
+                @for(actType of activityTypes; track actType.id) {
+                    <option>{{actType.name}}</option>
                 }
             </select>
             <select formControlName="monitor1" class="form-select mt-3">
                 <option selected disabled>Monitor 1</option>
-                @for(monitor of monitors; track $index) {
-                    <option>{{monitor}}</option>
+                @for(monitor of monitors; track monitor.id) {
+                    <option>{{monitor.name}}</option>
                 }
             </select>
             <select formControlName="monitor2" class="form-select mt-3">
                 <option selected disabled>Monitor 2</option>
-                @for(monitor of monitors; track $index) {
-                    <option>{{monitor}}</option>
+                @for(monitor of monitors; track monitor.id) {
+                    <option>{{monitor.name}}</option>
                 }
             </select>
             <div class="container mt-3">

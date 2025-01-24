@@ -21,7 +21,8 @@ export class ActivitiesComponent {
 
   ngOnInit(){
     
-  } 
+  }
+   
   updateDate(newDate: any) {
     this.date = newDate;
   }

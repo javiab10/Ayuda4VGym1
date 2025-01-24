@@ -37,5 +37,11 @@ export class ActivityCardComponent {
     this.loadActivity();
   }
 
+  onActivityAdded(): void {
+    this.loadActivity();
+  }
+
+  
+
 }
 

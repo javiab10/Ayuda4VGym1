@@ -25,13 +25,13 @@ export class ActivityTypeService {
     return of([]);
   }
 
-  getActivityTypeByName(name: string): ActivityType | null{
+  getActivityTypeByName(name: string): ActivityType {
     for(let actType of this.activityTypes){
       if(actType.name == name){
         return actType;
       }
     } 
-    return null;
+    return new ActivityType(-1, '');
   }
   
   getActivityTypeIdByname(name: string): number{

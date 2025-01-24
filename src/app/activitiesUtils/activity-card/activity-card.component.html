@@ -1,4 +1,10 @@
+
 @if(activity == null){
+    <!--MODAL AÑADIR ACTIVIDAD-->
+    <app-modal-add-activity [idModal]="'modalAdd'" [date]="date" [startingTime]="startingTime" [endingTime]="endingTime" (activityAddedEmiter)="onActivityAdded()" />
+    <!--MODAL EDITAR ACTIVIDAD-->
+    <app-modal-edit-activity [activity]="activity" />
+    
     <div class="row">
         <div class="col-12 col-sm-2 col-md-1 d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex flex-wrap">
@@ -26,13 +32,15 @@
                     </clipPath>
                     </defs>
                 </svg>
+                
                    
             </div>    
         </div>
         <!--CRUCETA AÑADIR ACTIVIDAD-->
     </div>
+   
+
 }@else {
- 
     <div class="row">
         <div class="col-12 col-sm-2 col-md-1 d-flex flex-column align-items-center justify-content-center">
             <div class="d-flex flex-wrap">
@@ -40,6 +48,7 @@
                 <p class="small flex-fill">{{ activity.endingTime }}</p>
             </div>
         </div>
+        
  
         <!--ACTIVIDAD-->
         <div class="list col-10 p-2">
@@ -76,11 +85,5 @@
         </div>
         <!--ICONOS-->
     </div>
- 
-    <!--MODAL AÑADIR ACTIVIDAD-->
-    <app-modal-add-activity [date]="date" [startingTime]="startingTime" [endingTime]="endingTime" />
     
-    <!--MODAL EDITAR ACTIVIDAD-->
-    <app-modal-edit-activity [activity]="activity" />
 }
-

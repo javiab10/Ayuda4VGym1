@@ -30,6 +30,7 @@ export class ActivityService {
   }
 
   addActivity(activity: Activity): void {
+    console.log('Activity Recibida hora' + activity.startingTime);
     this.activities.push(activity);
   }
 

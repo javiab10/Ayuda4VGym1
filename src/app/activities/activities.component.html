@@ -1,26 +1,29 @@
-<div class="container py-4">
-    <div class="row justify-content-start gap-5">
-        <div class="col-2">
-            <input type="date" [(ngModel)]="date">
+<div class="container-fluid p-5 m-2">
+    <div class="row">
+        <!-- Sidebar para el calendario -->
+        <div class="col-md-3 col-12 position-sticky top-0 bg-light p-4 shadow-sm rounded">
+            <h5 class="mb-3">Selecciona una fecha</h5>
+            
+            <!-- Calendario Completo -->
+            <mat-calendar [(selected)]="date"></mat-calendar>
         </div>
 
-        <div class="col-8">
+        <!-- Contenido principal -->
+        <div class="col-md-9 col-12">
             <div class="container">
-                
-                <!--FECHA-->
+                <!-- FECHA -->
                 <app-fecha [date]="date" (dateChange)="updateDate($event)"></app-fecha>
-                <!--FECHA-->
+                <!-- FECHA -->
 
-                <!--ACTIVIDADES-->
+                <!-- ACTIVIDADES -->
                 <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'10:00'" [endingTime]="'11:30'"></app-activity-card>
                 <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'13:30'" [endingTime]="'15:00'"></app-activity-card>
                 <app-activity-card [date]="date" (dateChange)="updateDate($event)" [startingTime]="'17:30'" [endingTime]="'19:00'"></app-activity-card>
-                <!--ACTIVIDADES-->
-
+                <!-- ACTIVIDADES -->
             </div>
         </div>
     </div>
 
-    <!--MODAL AÑADIR ACTIVIDAD-->
-    <app-modal-add-activity/>
+    <!-- MODAL AÑADIR ACTIVIDAD -->
+    <app-modal-add-activity></app-modal-add-activity>
 </div>
